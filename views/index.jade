@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+    meta(charset="UTF-8")
+    title= title
+    link(href="/css/bootstrap.css",rel='stylesheet')
+    script(src="/js/jquery-1.11.0.js")
+    script(src="/js/bootstrap.js")
+body
+    nav.navbar.navbar-default
+       .container-fluid
+          .navbar-header
+             button(type="button",class="navbar-toggle collapsed",data-toggle="collapse",data-target="#bs-example-navbar-collapse-1",aria-expanded="false")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+             a.navbar-brand(href="/") 小小相册
+          div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+             ul.nav.navbar-nav
+                li.active
+                  a(href="/admin") 上传文件页
+                    span.sr-only current
+    .container
+        .row
+         each dir in dirs
+          .col-xs-6.col-md-3
+            a(href=dir,class="thumbnail")
+              img(src="img/files.jpg" alt="文件夹")
+            h4.text-center=dir
+

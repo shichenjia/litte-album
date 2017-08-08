@@ -1,0 +1,39 @@
+doctype html
+html
+    head
+    meta(charset="UTF-8")
+    title
+    link(href="/css/bootstrap.css" rel='stylesheet')
+    script(src="/js/jquery-1.11.0.js")
+    script(src="/js/bootstrap.js")
+body
+    nav.navbar.navbar-default
+        .container-fluid
+            .navbar-header
+                button(type="button",class="navbar-toggle collapsed",data-toggle="collapse",data-target="#bs-example-navbar-collapse-1",aria-expanded="false")
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href="/") 小小相册
+            div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+                ul.nav.navbar-nav
+                    li.active
+                        a(href="/admin") 上传文件页
+                            span.sr-only current
+    .container
+        form(action='#',method='post')
+            .form-group
+                label 创建目录名
+                input(type="text",class='form-control',placeholder="创建目录名，如无此需求可不填",name='createdir')
+            button(type="submit",class='btn btn-default') 创建目录名
+        form(action='http://127.0.0.1:3000/admin',method='post',enctype="multipart/form-data")
+           .form-group
+             label 上传目录名
+             select.form-control(name='uploaddir')
+               each dir in dirs
+                 option(value=dir)=dir
+           .form-group
+                label 上传文件
+                input(type="file",name="upload")
+           button(type="submit",class='btn btn-default') 上传
